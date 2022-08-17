@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
+
+
+body{
+    background-color: #A7E9AF;
+}
+
+header{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+header h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 56px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #75B79E;
+}
+
+.card{
+    background-color: #99CEA8;
+    background-image: url(../imagens/front.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 117px;
+    height: 146px;
+    border-radius: 5px;
+}
