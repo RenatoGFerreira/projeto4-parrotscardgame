@@ -1,5 +1,9 @@
 let resposta;
+let totJogadas = 0;
+let fimGame = 0;
 let stageGame = document.querySelector('.stage-game')
+let cardOne;
+let cardTwo;
 const parrots = [
     'bobrossparrot',
     'explodyparrot',
@@ -9,15 +13,55 @@ const parrots = [
     'tripletsparrot',
     'unicornparrot'
 ]
-
-const revealCard = ({target}) =>{
-    target.parentNode.classList.add('mostra-carta')
-}
-
 playGame()
 createCard()
 
+function revelaCard(objeto){
 
+    totJogadas ++
+    console.log(`clique: ${totJogadas}`)
+    
+    if(cardOne === undefined){
+        objeto.target.parentNode.classList.add('mostra-carta')
+        cardOne = objeto.target.parentNode
+
+    } else if(cardTwo === undefined){
+        objeto.target.parentNode.classList.add('mostra-carta')
+        cardTwo = objeto.target.parentNode
+        
+        compareCard(cardOne, cardTwo)
+    }
+
+}
+
+function compareCard(a, b){
+    const firstCard = a.getAttribute('data-parrot')
+    const secondCard = b.getAttribute('data-parrot')
+
+    if( firstCard === secondCard){
+
+            cardOne = undefined
+            cardTwo = undefined
+
+            fimGame++
+            if(fimGame == resposta){
+                setTimeout(()=>{
+                    window.alert(`Você ganhou em ${totJogadas} jogadas com tempo de Tempo.`)
+                },1200)
+            }
+            
+
+    }else{
+
+        setTimeout(()=>{
+            cardOne.classList.remove('mostra-carta')
+            cardTwo.classList.remove('mostra-carta')  
+            
+            cardOne = undefined
+            cardTwo = undefined
+        }, 1000)
+    }
+}
 
 
 function playGame(){   
@@ -32,13 +76,16 @@ function playGame(){
     }
 
     const parrotsDeck = [...parrotsGame, ...parrotsGame]
-    const shuffleDeckParrot = parrotsDeck.sort( () => Math.random()- 0.5)
+    const shuffleDeckParrot = parrotsDeck.sort(
+        function shuffleCards(){
+        let posicao = Math.random() - 0.5
+        return posicao
+    })
 
     for(let i = 0 ; i < shuffleDeckParrot.length ; i++){
         const carta = createCard(shuffleDeckParrot[i])
         stageGame.appendChild(carta)
     }
-
 }
 
 
@@ -56,10 +103,13 @@ function createCard(parrot){
     card.appendChild(front)
     card.appendChild(back)
 
-    card.addEventListener('click', revealCard)
-
+    card.setAttribute('data-parrot', parrot)
+    card.addEventListener('click', revelaCard)
 
     return card
 }
+
+
+
 
 
