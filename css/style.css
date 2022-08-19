@@ -9,7 +9,7 @@ header{
     margin-top: 40px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 
 }
@@ -18,18 +18,57 @@ header h1{
     font-family: 'Roboto', sans-serif;
     font-size: 56px;
     text-transform: uppercase;
+    text-align: center;
     font-weight: 700;
     color: #75B79E;
 }
+main{
+    border: 1px solid red;
+    margin: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 .card{
-    background-color: #99CEA8;
-    background-image: url(../imagens/front.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
     width: 117px;
     height: 146px;
+    margin: 30px;
+    border-radius: 5px;
+    position: relative;
+    transition: all 400ms ease;
+    transform-style: preserve-3d;
+}
+
+.face{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid white;
     border-radius: 5px;
 }
+
+.front{
+    background-color: blue;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateY(180deg);  
+
+}
+
+.back{
+    background-color: #99CEA8;
+    background-image: url('../imagens/front.png');
+    backface-visibility: hidden;
+}
+
+.mostra-carta{
+    transform: rotateY(180DEG);
+}
+
