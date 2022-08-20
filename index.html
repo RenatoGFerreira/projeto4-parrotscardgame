@@ -9,14 +9,24 @@
     <link rel="stylesheet" href="css/style.css">
 
     <title>projeto4-parrotscardgame</title>
+    <!-- EASTER EGG: => DIGITE 9999 NO PRIMEIRO CONSOLE-->
 
 </head>
-<body>
-    <header>
-        <h1>parrot card game</h1>
+<body class="body">
+    <header class="cabecalho">
+        <h1>parrot card game</h1> 
         <span class="game-timer">TEMPO: <span class="timer">0</span></span>
+        <div class="audio-controls">
+            <ion-icon name="play-circle-outline" class="btn-audio play-btn" onclick="playPause(this)"></ion-icon>
+            <ion-icon name="stop-circle-outline" class="btn-audio stop-btn" onclick="stopMusic()"></ion-icon>
+            <!-- <ion-icon name="pause-circle-outline"></ion-icon> -->
+            <audio class="audio-game" loop>
+                <source src="./audios/house-m.mp3" type="audio/mp3">
+            </audio>
+        </div>
     </header>
     <main class="stage-game"></main>
     <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 </body>
 </html>

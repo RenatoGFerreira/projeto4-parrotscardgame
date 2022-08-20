@@ -13,7 +13,26 @@ const parrots = [
     'metalparrot',
     'revertitparrot',
     'tripletsparrot',
-    'unicornparrot'
+    'unicornparrot',
+    'z3parrots',
+    'zbirthdayparrot',
+    'zbrazilparrot',
+    'zdetectiveparrot',
+    'zdevilparrot',
+    'zdogeparrot',
+    'zdrinkingparrot',
+    'zfootballparrot',
+    'zheadbangingparrot',
+    'zlsdparrot',
+    'zmustacheparrot',
+    'znegativeparrot',
+    'zpirateparrot',
+    'zpoliceparrot',
+    'zpopcornparrot',
+    'zscientistparrot',
+    'zsoccerparrot',
+    'zsunglassparrot',
+    'ztenisparrot',
 ]
 playGame()
 createCard()
@@ -31,9 +50,27 @@ function startTimer(){
 
 function playGame(){   
     while((resposta % 2 !== 0 || resposta > 14) || (resposta % 2 !== 0 || resposta < 4) || resposta === undefined){
-        resposta = window.prompt("Por favor, digite a quantidade de cartas \n(Valores pares de 4 a 14):")    
-    }  
+        resposta = window.prompt("Por favor, digite a quantidade de cartas \n(Valores pares de 4 a 14):")   
+        console.log(resposta)
+        if(resposta == 9999){
+            break
+        }
+    } 
+    if(resposta == 9999){
+        let fundo = document.querySelector(".body")
+        let palco = document.querySelector('.stage-game')
+        let topo = document.querySelector(".cabecalho")
+        let musicOn = document.querySelector(".audio-controls")
+        fundo.classList.add('body-estilized')
+        palco.classList.add('main-estilized')
+        topo.classList.add('cabecalho-estilized')
+        musicOn.classList.remove('audio-controls')
+        musicOn.classList.add('audio-control-estilized')
 
+        resposta = 52
+
+        alert('Parabens, Você liberou o desafio das 52 cartas. Você não teria essa coragem de jogar isso certo?')
+    }
     startTimer()
 
     resposta = resposta/2
@@ -66,6 +103,12 @@ function createCard(parrot){
     card.className = 'card'
     front.className = 'face front'
     back.className = 'face back'
+
+    if(resposta == 26){
+        card.className = 'card-estilized'
+        front.className = 'face-estilized front-estilized'
+        back.className = 'face-estilized back-estilized'
+    }
     
     card.appendChild(front)
     card.appendChild(back)
@@ -134,4 +177,16 @@ function playAgain(){
         alert('Você precisa digitar apenas sim ou não')
         playAgain()
     }
+}
+
+
+function playPause(item){
+    console.log(item)
+    let musicGame = document.querySelector('.audio-game')
+    musicGame.setAttribute('play', autoplay)
+
+}
+
+function stopMusic(){
+    console.log("parou musica")
 }
