@@ -23,7 +23,6 @@ header h1{
     color: #75B79E;
 }
 main{
-    border: 1px solid red;
     margin: 30px;
     display: flex;
     flex-direction: row;
@@ -49,7 +48,7 @@ main{
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
-    border: 2px solid white;
+    border: 1px solid #99CEA8;
     border-radius: 5px;
 }
 
