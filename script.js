@@ -26,9 +26,8 @@ function startTimer(){
 
 
     }, 1000);
-
-
 }
+
 
 function playGame(){   
     while((resposta % 2 !== 0 || resposta > 14) || (resposta % 2 !== 0 || resposta < 4) || resposta === undefined){
@@ -93,8 +92,8 @@ function revelaCard(objeto){
         
         compareCard(cardOne, cardTwo)
     }
-
 }
+
 
 function compareCard(a, b){
     const firstCard = a.getAttribute('data-parrot')
@@ -109,19 +108,11 @@ function compareCard(a, b){
             if(fimGame == resposta){
                 setTimeout(()=>{
                     clearInterval(this.item)
-
-                    simNao = window.confirm(`Você ganhou em ${totJogadas} jogadas e o seu tempo foi ${timer.innerHTML}s.\nDeseja jogar novamente? [Ok/Cancelar]`)
-
-                    if(simNao === true){
-                        location.reload()
-                    }
-                    
+                    alert(`Você ganhou em ${totJogadas} jogadas e o seu tempo foi ${timer.innerHTML}s.`)
+                    playAgain()   
                 },1200)
             }
-            
-
     }else{
-
         setTimeout(()=>{
             cardOne.classList.remove('mostra-carta')
             cardTwo.classList.remove('mostra-carta')  
@@ -133,3 +124,14 @@ function compareCard(a, b){
 }
 
 
+function playAgain(){
+    let jogarDeNovo = window.prompt("Deseja jogar de Novo? [sim/não]").toLowerCase()
+    if(jogarDeNovo === 'sim'){
+        location.reload()
+    }else if(jogarDeNovo === 'não'){
+        alert('Até a próxima! :D')
+    }else{
+        alert('Você precisa digitar apenas sim ou não')
+        playAgain()
+    }
+}
