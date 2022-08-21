@@ -71,7 +71,7 @@ function playGame(){
 
         resposta = 52
 
-        alert('Parabens, Você liberou o desafio das 52 cartas. \nVocê não teria essa coragem de jogar isso certo? [O.o]')
+        alert('Parabéns, Você liberou o desafio das 52 cartas. \nVocê não teria essa coragem de jogar isso certo? [O.o]')
     }
     startTimer()
 
