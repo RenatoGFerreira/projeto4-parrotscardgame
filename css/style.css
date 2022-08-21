@@ -63,7 +63,7 @@
 
 .back{
     background-color: #99CEA8;
-    background-image: url('../imagens/front.png');
+    background-image: url('./imagens/front.png');
     backface-visibility: hidden;
 }
 
