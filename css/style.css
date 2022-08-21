@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Iso&display=swap');
 
+/* 
+****************************** EASTER EGG: => DIGITE 9999 NO PRIMEIRO CONSOLE **********************************************
+*/
 
 .body{
     background-color: #a7e9af;
@@ -49,7 +52,7 @@
     background-size: 90%;
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid #fff;
+    border: 1px solid #99ceA8;
     border-radius: 5px;
 }
 
@@ -174,4 +177,11 @@
     color: #515352;
     font-size: 30px;
     margin: 1px 8px;
+}
+.btn-audio:hover{
+color: #717372;
+}
+.btn-audio:active{
+color: #050505;
+font-size: 29px;
 }

@@ -1,3 +1,4 @@
+//  EASTER EGG: => DIGITE 9999 NO PRIMEIRO CONSOLE *****************************************************************************
 let resposta;
 let simNao;
 let totJogadas = 0;
@@ -40,10 +41,7 @@ createCard()
 function startTimer(){
     this.item = setInterval(() =>{
         const tempo = Number(timer.innerHTML)
-
         timer.innerHTML = tempo + 1
-
-
     }, 1000);
 }
 
@@ -57,19 +55,23 @@ function playGame(){
         }
     } 
     if(resposta == 9999){
-        let fundo = document.querySelector(".body")
-        let palco = document.querySelector('.stage-game')
-        let topo = document.querySelector(".cabecalho")
-        let musicOn = document.querySelector(".audio-controls")
+        const fundo = document.querySelector(".body")
+        const palco = document.querySelector('.stage-game')
+        const topo = document.querySelector(".cabecalho")
+        const musicOn = document.querySelector(".audio-controls")
+        const audio = document.querySelector('.audio-game')
+
         fundo.classList.add('body-estilized')
         palco.classList.add('main-estilized')
         topo.classList.add('cabecalho-estilized')
         musicOn.classList.remove('audio-controls')
         musicOn.classList.add('audio-control-estilized')
+        audio.autoplay = true
+        console.log(audio)
 
         resposta = 52
 
-        alert('Parabens, Você liberou o desafio das 52 cartas. Você não teria essa coragem de jogar isso certo?')
+        alert('Parabens, Você liberou o desafio das 52 cartas. \nVocê não teria essa coragem de jogar isso certo? [O.o]')
     }
     startTimer()
 
@@ -98,7 +100,7 @@ function createCard(parrot){
     const front = document.createElement("div")
     const back = document.createElement("div")
 
-    front.style.backgroundImage = `url('../gifs/${parrot}.gif')`
+    front.style.backgroundImage = `url('./gifs/${parrot}.gif')`
     
     card.className = 'card'
     front.className = 'face front'
@@ -151,7 +153,7 @@ function compareCard(a, b){
             if(fimGame == resposta){
                 setTimeout(()=>{
                     clearInterval(this.item)
-                    alert(`Você ganhou em ${totJogadas} jogadas e o seu tempo foi ${timer.innerHTML}s.`)
+                    alert(`Você ganhou em ${totJogadas} jogadas e o seu tempo foi ${timer.innerHTML} segundos.`)
                     playAgain()   
                 },1200)
             }
@@ -168,7 +170,7 @@ function compareCard(a, b){
 
 
 function playAgain(){
-    let jogarDeNovo = window.prompt("Deseja jogar de Novo? [sim/não]").toLowerCase()
+    let jogarDeNovo = window.prompt("Deseja jogar de Novo? [sim/não]").toLowerCase().trim()
     if(jogarDeNovo === 'sim'){
         location.reload()
     }else if(jogarDeNovo === 'não'){
@@ -180,13 +182,13 @@ function playAgain(){
 }
 
 
-function playPause(item){
-    console.log(item)
-    let musicGame = document.querySelector('.audio-game')
-    musicGame.setAttribute('play', autoplay)
-
+function playMusic(){
+    const audio = document.querySelector('.audio-game')
+        audio.play()
 }
 
 function stopMusic(){
-    console.log("parou musica")
+    const audio = document.querySelector('.audio-game')
+    audio.pause()
+    audio.currentTime = 0;
 }
