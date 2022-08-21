@@ -98,7 +98,7 @@ function createCard(parrot){
     const front = document.createElement("div")
     const back = document.createElement("div")
 
-    front.style.backgroundImage = `url('../gifs/${parrot}.gif')`
+    front.style.backgroundImage = `url('./gifs/${parrot}.gif')`
     
     card.className = 'card'
     front.className = 'face front'
